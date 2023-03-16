@@ -86,9 +86,10 @@ const Listing = () => {
             <p className="listingType">
                 For {listing.type === 'rent' ? 'Rent' : 'Sell'}
             </p>
+            {/* {console.log(listing)} */}
             {listing.offer && (
                 <p className="discountPrice">
-                    ${listing.regularPrice - listing.discountPrice}discount 
+                    ₹{listing.regularPrice - listing.discountedPrice} discount 
                 </p>
             )
             }
