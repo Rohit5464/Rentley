@@ -14,7 +14,7 @@ import {
 import { db } from '../firebase.config'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import ListingItem from '../components/ListingItem'
+import Listingitem from '../components/Listingitem'
 import arrowRight from '../assets/svg/keyboardArrowRightIcon.svg'
 import homeIcon from '../assets/svg/homeIcon.svg'
 
@@ -160,7 +160,7 @@ function Profile() {
             <p className='listingText'>Your Listings</p>
             <ul className='listingsList'>
               {listings.map((listing) => (
-                <ListingItem 
+                <Listingitem 
                   key={listing.id}
                   listing={listing.data}
                   id={listing.id}
