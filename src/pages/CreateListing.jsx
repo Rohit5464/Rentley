@@ -234,7 +234,7 @@ function CreateListing() {
             </button>
           </div>
 
-          <label className='formLabel'>Name</label>
+          <label className='formLabel'>Description</label>
           <input
             className='formInputName'
             type='text'

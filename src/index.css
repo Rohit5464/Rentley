@@ -363,11 +363,11 @@ button {
 .swiperSlideText {
   color: #ffffff;
   position: absolute;
-  top: 123px;
+  top: 136px;
   left: 0;
-  font-weight: 600;
+  font-weight: 200;
   max-width: 90%;
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
   background-color: rgba(86, 84, 84, 0.8);
   padding: 0.5rem;
 }
@@ -383,8 +383,8 @@ button {
   color: #000000;
   position: absolute;
   top: 175px;
-  left: 11px;
-  font-weight: 600;
+  left: 2px;
+  font-weight: 400;
   max-width: 90%;
   background-color: #ffffff;
   padding: 0.25rem 0.5rem;
