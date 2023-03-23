@@ -365,7 +365,7 @@ button {
   position: absolute;
   top: 136px;
   left: 0;
-  font-weight: 200;
+  font-weight: 400;
   max-width: 90%;
   /* font-size: 1.5rem; */
   background-color: rgba(86, 84, 84, 0.8);
@@ -389,6 +389,7 @@ button {
   background-color: #ffffff;
   padding: 0.25rem 0.5rem;
   border-radius: 1rem;
+  font-size: 1rem;
 }
 @media (min-width: 1024px) {
   .swiperSlidePrice {
