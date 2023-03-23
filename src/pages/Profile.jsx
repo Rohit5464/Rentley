@@ -92,6 +92,10 @@ function Profile() {
     }))
   }
 
+  const onList = (e) => {
+    
+  }
+
   const onDelete = async (listingId) => {
     if (window.confirm('Are you sure you want to delete?')) {
       await deleteDoc(doc(db, 'listings', listingId))
