@@ -32,6 +32,7 @@ function EditListing() {
     images: {},
     latitude: 0,
     longitude: 0,
+    listingEnabled: true
   })
 
   const {
@@ -71,7 +72,6 @@ function EditListing() {
       const docSnap = await getDoc(docRef)
       if (docSnap.exists()) {
         setListing(docSnap.data())
-        console.log(docSnap.data())
         setFormData({ ...docSnap.data(), address: docSnap.data().location })
         setLoading(false)
       } else {
@@ -206,6 +206,7 @@ function EditListing() {
     delete formDataCopy.images
     delete formDataCopy.address
     !formDataCopy.offer && delete formDataCopy.discountedPrice
+
 
     // Update listing
     const docRef = doc(db, 'listings', params.listingId)

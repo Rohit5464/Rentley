@@ -31,6 +31,7 @@ function CreateListing() {
     images: {},
     latitude: 0,
     longitude: 0,
+    listingEnabled: true
   })
 
   const {
@@ -75,7 +76,7 @@ function CreateListing() {
 
     setLoading(true)
 
-    if (discountedPrice >= regularPrice) {
+    if (discountedPrice > regularPrice) {
       setLoading(false)
       toast.error('Discounted price needs to be less than regular price')
       return
@@ -154,12 +155,14 @@ function CreateListing() {
       timestamp: serverTimestamp(),
     }
 
+    
+    formDataCopy.location = address;
     delete formDataCopy.images;
-    // delete formDataCopy.address;
-    formDataCopy.location;
+    delete formDataCopy.address;
+    location && (formDataCopy.location = location);
+
     !formDataCopy.offer && delete formDataCopy.discountedPrice;
-    delete formDataCopy.latitude;
-    delete formDataCopy.longitude;
+  
     formDataCopy.imgUrls = imgUrls;
     if (geolocation.lat !== 0 && geolocation.lng !== 0)
       formDataCopy.geolocation = geolocation;

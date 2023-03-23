@@ -17,12 +17,17 @@ function Offers() {
   const [listings, setListings] = useState(null)
   const [loading, setLoading] = useState(true)
   const [lastFetchedListing, setLastFetchedListing] = useState(null)
+  const [loadMore , setLoadMore] = useState(false)
 
+
+ 
   useEffect(() => {
+    
     const fetchListings = async () => {
       try {
         // Get reference
         const listingsRef = collection(db, 'listings')
+        
 
         // Create a query
         const q = query(
@@ -55,6 +60,10 @@ function Offers() {
     }
 
     fetchListings()
+    if(listings?.length > 9){
+      setLoadMore(true)
+    }
+  
   }, [])
 
   // Pagination / Load More
@@ -92,6 +101,7 @@ function Offers() {
     } catch (error) {
       toast.error('Could not fetch listings')
     }
+    
   }
 
   return (
@@ -106,19 +116,20 @@ function Offers() {
         <>
           <main>
             <ul className='categoryListings'>
-              {listings.map((listing) => (
-                <Listingitem
+              {listings.map((listing) =>  {
+               return listing.data.listingEnabled &&  <Listingitem
                   listing={listing.data}
                   id={listing.id}
                   key={listing.id}
                 />
-              ))}
+      })}
             </ul>
           </main>
 
           <br />
           <br />
-          {lastFetchedListing && (
+          {/* {console.log(listings.length)} */}
+           {loadMore && lastFetchedListing && (
             <p className='loadMore' onClick={onFetchMoreListings}>
               Load More
             </p>

@@ -23,6 +23,7 @@ const Listing = () => {
   const params = useParams();
   const auth = getAuth();
 
+
   useEffect(() => {
     const fetchListing = async () => {
       const docRef = doc(db, "listings", params.listingId);
@@ -33,14 +34,13 @@ const Listing = () => {
       }
     };
     fetchListing();
+    
   }, [navigate, params.listingId]);
   if (loading) {
     return <Spinner />;
   }
-// console.log(listing)
   return (
     <main>
-        {/* {console.log(listing.imgUrls[])} */}
       
       <Swiper slidesPerView={1} pagination={{ clickable: true }}>
         {listing.imgUrls.map((url, index) => (
@@ -86,7 +86,7 @@ const Listing = () => {
             <p className="listingType">
                 For {listing.type === 'rent' ? 'Rent' : 'Sell'}
             </p>
-            {/* {console.log(listing)} */}
+
             {listing.offer && (
                 <p className="discountPrice">
                     ₹{listing.regularPrice - listing.discountedPrice} discount 
@@ -123,7 +123,7 @@ const Listing = () => {
             </div>
 
 
-            {auth.currentUser?.uid === listing.userRef && (
+            {auth.currentUser?.uid !== listing.userRef && (
                 <Link to={`/contact/${listing.userRef}?listingName=${listing.name}`}
                 className="primaryButton"
                 > Contact Landlord </Link>

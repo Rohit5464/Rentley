@@ -84,6 +84,11 @@ button {
   top: -3.4%;
   right: 20px;
 }
+.editList {
+  /* position: absolute; */
+  bottom: -3.4%;
+  right: -10px;
+}
 
 .pageContainer,
 .offers,
@@ -317,8 +322,7 @@ button {
 }
 @media (max-height: 536) {
   .explore {
-    margin-bottom: 10rem;
-  }
+    margin-bottom: 10rem;  }
 }
 
 .exploreHeading,
@@ -428,9 +432,10 @@ button {
 
 .categoryListingImg {
   width: 30%;
-  height: 100px;
+  height: 120px;
   border-radius: 1.5rem;
   object-fit: cover;
+  margin: 1rem;
 }
 @media (min-width: 1024px) {
   .categoryListingImg {

@@ -18,6 +18,8 @@ function Category() {
   const [listings, setListings] = useState(null)
   const [loading, setLoading] = useState(true)
   const [lastFetchedListing, setLastFetchedListing] = useState(null)
+  const [loadMore , setLoadMore] = useState(false)
+
 
   const params = useParams()
 
@@ -58,6 +60,9 @@ function Category() {
     }
 
     fetchListings()
+    if(listings?.length > 9){
+      setLoadMore(true)
+    }
   }, [params.categoryName])
 
   // Pagination / Load More
@@ -95,6 +100,7 @@ function Category() {
     } catch (error) {
       toast.error('Could not fetch listings')
     }
+
   }
 
   return (
@@ -113,19 +119,18 @@ function Category() {
         <>
           <main>
             <ul className='categoryListings'>
-              {listings.map((listing) => (
-                <Listingitem
+              {listings.map((listing) =>   listing.data.listingEnabled && (<Listingitem
                   listing={listing.data}
                   id={listing.id}
                   key={listing.id}
-                />
-              ))}
+                />)
+)}
             </ul>
           </main>
 
           <br />
           <br />
-          {lastFetchedListing && (
+          {loadMore && lastFetchedListing && (
             <p className='loadMore' onClick={onFetchMoreListings}>
               Load More
             </p>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore'
+import { collection, getDocs, query, orderBy, limit, where } from 'firebase/firestore'
 import { db } from '../firebase.config'
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -17,7 +17,9 @@ function Slider() {
   useEffect(() => {
     const fetchListings = async () => {
       const listingsRef = collection(db, 'listings')
-      const q = query(listingsRef, orderBy('timestamp', 'desc'), limit(5))
+      const q = query(listingsRef, orderBy('timestamp', 'desc',
+      ),
+      limit(5))
       const querySnap = await getDocs(q)
 
       let listings = []
@@ -50,7 +52,7 @@ function Slider() {
         <p className='exploreHeading'>Recommended</p>
 
         <Swiper slidesPerView={1} pagination={{ clickable: true }}>
-          {listings.map(({ data, id }) => (
+          {listings.map(({ data, id }) => data.listingEnabled && (
             <SwiperSlide
               key={id}
               onClick={() => navigate(`/category/${data.type}/${id}`)}

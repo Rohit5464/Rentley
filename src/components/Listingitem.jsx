@@ -1,10 +1,42 @@
 import { Link } from 'react-router-dom'
 import { ReactComponent as DeleteIcon } from '../assets/svg/deleteIcon.svg'
 import { ReactComponent as EditIcon } from '../assets/svg/editIcon.svg'
+import { ReactComponent as LockIcon } from '../assets/svg/lockIcon.svg'
+import { ReactComponent as CheckIcon } from '../assets/svg/checkIcon.svg'
+import Switch from 'react-switch'
 import bedIcon from '../assets/svg/bedIcon.svg'
 import bathtubIcon from '../assets/svg/bathtubIcon.svg'
+import { useEffect, useState } from 'react'
+import { doc, updateDoc } from 'firebase/firestore'
+import { db } from '../firebase.config'
+import { toast } from 'react-toastify'
 
-function ListingItem({ listing, id, onEdit, onDelete }) {
+function ListingItem({ listing, id, onEdit, onDelete , onList}) {
+  const [formData,setFormData] = useState({...listing})
+  const [isEnabled,setIsEnabled] = useState(listing.listingEnabled)
+
+    const handleClick = async() => {
+      const docRef = doc(db, 'listings', id)
+      if (formData.listingEnabled === true){
+        formData.listingEnabled = false
+        setIsEnabled(false)
+      }
+      else{
+        formData.listingEnabled = true
+        setIsEnabled(true)
+      }
+      await updateDoc(docRef, formData)
+      if (formData.listingEnabled === true){
+        toast.success('List is active')
+      }
+      else{
+        toast.success('List is not active')
+      }
+      
+  }
+useEffect(()=>{
+
+})
   return (
     <li className='categoryListing'>
       <Link
@@ -57,6 +89,12 @@ function ListingItem({ listing, id, onEdit, onDelete }) {
       )}
 
       {onEdit && <EditIcon className='editIcon' onClick={() => onEdit(id)} />}
+
+      {onList && (
+        <Switch onChange={handleClick} checked={isEnabled} className='editList'/>
+      )}
+     
+
     </li>
   )
 }
