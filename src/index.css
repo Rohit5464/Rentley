@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
 * {
   box-sizing: border-box;
+  padding: 0rem;
 }
 
 html::-webkit-scrollbar {
@@ -85,9 +86,8 @@ button {
   right: 20px;
 }
 .editList {
-  /* position: absolute; */
   bottom: -3.4%;
-  right: -10px;
+  right: -1px;
 }
 
 .pageContainer,
@@ -291,6 +291,11 @@ button {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
+.space{
+  margin-bottom: 110px;
+  visibility: hidden;
+}
+
 .socialIconImg {
   width: 100%;
 }
@@ -435,7 +440,7 @@ button {
   height: 120px;
   border-radius: 1.5rem;
   object-fit: cover;
-  margin: 1rem;
+  margin-right: 1rem;
 }
 @media (min-width: 1024px) {
   .categoryListingImg {
@@ -481,6 +486,13 @@ button {
   display: flex;
   justify-content: space-between;
   max-width: 275px;
+}
+
+.categoryListingInfoDiv-1{
+  display: flex;
+  justify-content: space-between;
+  max-width: 275px;
+  visibility: hidden;
 }
 
 .categoryListingInfoText {

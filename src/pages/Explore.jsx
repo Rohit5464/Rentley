@@ -25,6 +25,7 @@ const Explore = () => {
                 </Link>
                 
             </div>
+            <div className='space'> </div>
         </main>
     </div>
   )

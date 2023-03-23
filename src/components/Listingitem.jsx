@@ -91,7 +91,9 @@ useEffect(()=>{
       {onEdit && <EditIcon className='editIcon' onClick={() => onEdit(id)} />}
 
       {onList && (
-        <Switch onChange={handleClick} checked={isEnabled} className='editList'/>
+        <Switch onChange={handleClick} checked={isEnabled} className='editList' height={19}
+        width={34}
+        handleDiameter={13}/>
       )}
      
 
