@@ -19,12 +19,13 @@ function Slider() {
       const listingsRef = collection(db, 'listings')
       const q = query(listingsRef, orderBy('timestamp', 'desc',
       ),
-      limit(5))
+      limit(7))
       const querySnap = await getDocs(q)
 
       let listings = []
 
       querySnap.forEach((doc) => {
+        
         return listings.push({
           id: doc.id,
           data: doc.data(),
@@ -57,6 +58,7 @@ function Slider() {
             disableOnInteraction: false,
             pauseOnMouseEnter : true
           }}>
+            {/* {console.log(listings)} */}
           {listings.map(({ data, id }) => data.listingEnabled && (
             <SwiperSlide
               key={id}

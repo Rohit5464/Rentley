@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import rentCategoryImage from '../assets/jpg/rentCategoryImage.jpg'
-import sellCategoryImage from '../assets/jpg/sellCategoryImage.jpg'
+import rentImage from '../assets/jpg/rent.jpg'
+import sellImage from '../assets/jpg/sell.jpg'
 import Slider from '../components/Slider'
 
 const Explore = () => {
@@ -16,11 +16,11 @@ const Explore = () => {
             <p className="exploreCategoryHeading">Categories</p>
             <div className="exploreCategories">     
                 <Link to='/category/rent'>
-                    <img src={rentCategoryImage} alt="rent" className='exploreCategoryImg' />
+                    <img src={rentImage} alt="rent" className='exploreCategoryImg' />
                     <p className="exploreCategoryName">Products for rent</p>
                 </Link>
                 <Link to='/category/sell'>
-                    <img src={sellCategoryImage} alt="sell" className='exploreCategoryImg' />
+                    <img src={sellImage} alt="sell" className='exploreCategoryImg' />
                     <p className="exploreCategoryName">Products for sale</p>
                 </Link>
                 
