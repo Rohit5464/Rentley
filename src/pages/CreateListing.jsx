@@ -246,7 +246,7 @@ function CreateListing() {
             required
           />
 
-          <div className='formRooms flex'>
+          {/* <div className='formRooms flex'>
             <div>
               <label className='formLabel'>Bedrooms</label>
               <input
@@ -259,8 +259,8 @@ function CreateListing() {
                 max='50'
                 required
               />
-            </div>
-            <div>
+            </div> */}
+            {/* <div>
               <label className='formLabel'>Bathrooms</label>
               <input
                 className='formInputSmall'
@@ -273,9 +273,9 @@ function CreateListing() {
                 required
               />
             </div>
-          </div>
+          </div> */}
 
-          <label className='formLabel'>Parking spot</label>
+          {/* <label className='formLabel'>Parking spot</label>
           <div className='formButtons'>
             <button
               className={parking ? 'formButtonActive' : 'formButton'}
@@ -325,7 +325,7 @@ function CreateListing() {
             >
               No
             </button>
-          </div>
+          </div> */}
 
           <label className='formLabel'>Address</label>
           <textarea
@@ -337,7 +337,7 @@ function CreateListing() {
             required
           />
 
-          {!geolocationEnabled && (
+          {/* {!geolocationEnabled && (
             <div className='formLating flex'>
               <div>
                 <label className='formLabel'>Latitude</label>
@@ -362,7 +362,7 @@ function CreateListing() {
                 />
               </div>
             </div>
-          )}
+          )} */}
 
           <label className='formLabel'>Offer</label>
           <div className='formButtons'>

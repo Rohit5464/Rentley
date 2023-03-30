@@ -64,7 +64,7 @@ useEffect(()=>{
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             {listing.type === 'rent' && ' / Month'}
           </p>
-          <div className='categoryListingInfoDiv'>
+          {/* <div className='categoryListingInfoDiv'>
             <img src={bedIcon} alt='bed' />
             <p className='categoryListingInfoText'>
               {listing.bedrooms > 1
@@ -77,7 +77,7 @@ useEffect(()=>{
                 ? `${listing.bathrooms} Bathrooms`
                 : '1 Bathroom'}
             </p>
-          </div>
+          </div> */}
         </div>
       </Link>
 

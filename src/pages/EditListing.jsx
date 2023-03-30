@@ -277,7 +277,7 @@ function EditListing() {
             </button>
           </div>
 
-          <label className='formLabel'>Name</label>
+          <label className='formLabel'>Description</label>
           <input
             className='formInputName'
             type='text'
@@ -289,7 +289,7 @@ function EditListing() {
             required
           />
 
-          <div className='formRooms flex'>
+          {/* <div className='formRooms flex'>
             <div>
               <label className='formLabel'>Bedrooms</label>
               <input
@@ -368,7 +368,7 @@ function EditListing() {
             >
               No
             </button>
-          </div>
+          </div> */}
 
           <label className='formLabel'>Address</label>
           <textarea
@@ -380,7 +380,7 @@ function EditListing() {
             required
           />
 
-          {!geolocationEnabled && (
+          {/* {!geolocationEnabled && (
             <div className='formLatLng flex'>
               <div>
                 <label className='formLabel'>Latitude</label>
@@ -405,7 +405,7 @@ function EditListing() {
                 />
               </div>
             </div>
-          )}
+          )} */}
 
           <label className='formLabel'>Offer</label>
           <div className='formButtons'>
