@@ -108,8 +108,8 @@ function Category() {
       <header>
         <p className='pageHeader'>
           {params.categoryName === 'rent'
-            ? 'Places for rent'
-            : 'Places for sale'}
+            ? 'Products for rent'
+            : 'Products for sale'}
         </p>
       </header>
 
